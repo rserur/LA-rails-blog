@@ -1,0 +1,35 @@
+<h3><%= @article.title %></h3>
+
+<p>
+  <%= "Posted by #{@article.author} at #{@article.created_at}" %>
+</p>
+
+<p>
+  <%= @article.body %>
+</p>
+
+<p>
+  Categories: <%= @article.category_names %>
+</p>
+
+<h4>Add a Comment</h4>
+
+<%= form_for [@article, @comment] do |f| %>
+  <%= f.label :author %>:
+  <%= f.text_field :author %><br>
+
+  <%= f.label :body %>:
+  <%= f.text_area :body %><br>
+
+  <%= f.submit %>
+<% end %>
+
+
+<h4>Comments</h4>
+
+<% @article.comments.each do |comment| %>
+  <p>
+    <%= "#{comment.author} says: #{comment.body} (at #{comment.created_at})" %>
+  </p>
+<% end %>
+

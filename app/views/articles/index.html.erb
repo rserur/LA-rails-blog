@@ -1,0 +1,8 @@
+<h3>All Articles</h3>
+
+<ul>
+  <% @articles.each do |article| %>
+    <li><a href="/articles/<%= article.id %>"><%= "#{article.title}" %></a><%=", by #{article.author} (#{article.created_at})" %></li>
+  <% end %>
+</ul>
+

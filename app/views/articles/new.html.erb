@@ -1,0 +1,15 @@
+<%= form_for @article do |f| %>
+  <%= f.label :author %>:
+  <%= f.text_field :author %><br>
+
+  <%= f.label :title %>:
+  <%= f.text_field :title %><br>
+
+  <%= f.label :body %>:
+  <%= f.text_area :body %><br>
+
+  <%= f.label :categories %>:
+  <%= collection_check_boxes :article, :category_ids, @categories, :id, :name %><br>
+
+  <%= f.submit %>
+<% end %>
